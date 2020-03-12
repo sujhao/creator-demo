@@ -1,0 +1,17 @@
+{
+  "ver": "1.0.25",
+  "uuid": "d0c80b5d-d212-4e75-8581-23ec133eb3a4",
+  "compiledShaders": [
+    {
+      "glsl1": {
+        "vert": "\nprecision highp float;\nuniform mat4 cc_matWorld;\nuniform highp vec4 cc_time;\nuniform mediump mat4 cc_matViewProj;\nattribute vec3 a_position;\nuniform float textureWidth;\nuniform float speed;\nuniform float amplitude;\nuniform float wave;\nuniform vec2 startPos;\n#if USE_TEXTURE\n  attribute mediump vec2 a_uv0;\n  varying mediump vec2 v_uv0;\n#endif\nvoid main () {\n  float angleSpanH = wave * 3.14159265;\n  float pz = amplitude * sin(cc_time.x * speed - (a_position.x - startPos.x + a_position.y - startPos.y) / textureWidth * angleSpanH);\n  vec4 position = vec4(a_position.x, a_position.y + pz, a_position.z, 1);\n  #if USE_TEXTURE\n    v_uv0 = a_uv0;\n  #endif\n  gl_Position = cc_matViewProj * cc_matWorld * position;\n}",
+        "frag": "\nprecision highp float;\n#if USE_TEXTURE\n  varying vec2 v_uv0;\n  uniform sampler2D texture;\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n    o *= texture2D(texture, v_uv0);\n  #endif\n  gl_FragColor = o;\n}"
+      },
+      "glsl3": {
+        "vert": "\nprecision highp float;\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nuniform CCGlobal {\n  highp   vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n  mediump vec4 cc_nativeSize;\n  highp   mat4 cc_matView;\n  mediump mat4 cc_matViewInv;\n  mediump mat4 cc_matProj;\n  mediump mat4 cc_matProjInv;\n  mediump mat4 cc_matViewProj;\n  mediump mat4 cc_matViewProjInv;\n  mediump vec4 cc_cameraPos;\n};\nin vec3 a_position;\nuniform LAMYOUMG_COM {\n  float textureWidth;\n  float speed;\n  float amplitude;\n  float wave;\n  vec2 startPos;\n};\n#if USE_TEXTURE\n  in mediump vec2 a_uv0;\n  out mediump vec2 v_uv0;\n#endif\nvoid main () {\n  float angleSpanH = wave * 3.14159265;\n  float pz = amplitude * sin(cc_time.x * speed - (a_position.x - startPos.x + a_position.y - startPos.y) / textureWidth * angleSpanH);\n  vec4 position = vec4(a_position.x, a_position.y + pz, a_position.z, 1);\n  #if USE_TEXTURE\n    v_uv0 = a_uv0;\n  #endif\n  gl_Position = cc_matViewProj * cc_matWorld * position;\n}",
+        "frag": "uniform CCGlobal {\n  highp   vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n  mediump vec4 cc_nativeSize;\n  highp   mat4 cc_matView;\n  mediump mat4 cc_matViewInv;\n  mediump mat4 cc_matProj;\n  mediump mat4 cc_matProjInv;\n  mediump mat4 cc_matViewProj;\n  mediump mat4 cc_matViewProjInv;\n  mediump vec4 cc_cameraPos;\n};\nprecision highp float;\n#if USE_TEXTURE\n  in vec2 v_uv0;\n  uniform sampler2D texture;\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n    o *= texture(texture, v_uv0);\n  #endif\n  gl_FragColor = o;\n}"
+      }
+    }
+  ],
+  "subMetas": {}
+}

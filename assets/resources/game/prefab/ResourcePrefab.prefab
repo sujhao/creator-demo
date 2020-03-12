@@ -1,0 +1,115 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "",
+    "_objFlags": 0,
+    "_native": "",
+    "data": {
+      "__id__": 1
+    },
+    "optimizationPolicy": 0,
+    "asyncLoadAssets": false,
+    "readonly": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "ResourcePrefab",
+    "_objFlags": 0,
+    "_parent": null,
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 2
+      }
+    ],
+    "_prefab": {
+      "__id__": 3
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "e0c99n+VjVMqow70WeThIMg",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "moveGripPrefab": {
+      "__uuid__": "3caee2a2-ad97-48f8-b918-adb8e4b85efe"
+    },
+    "attackGridPrefab": {
+      "__uuid__": "403d3892-a05a-4cf8-aed6-91f0e6c57782"
+    },
+    "attackSelectGridPrefab": {
+      "__uuid__": "cc588cb9-8d99-462e-9984-78c311f3576e"
+    },
+    "scorePrefab": {
+      "__uuid__": "463abd5d-c3b8-4354-b614-012540a2dfb8"
+    },
+    "giftPrefab": {
+      "__uuid__": "f91744b1-3c96-49f5-b618-1b99043cad8f"
+    },
+    "controlUI": {
+      "__uuid__": "4c1908e7-a7f8-49ed-ae40-ca54c48a44a5"
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "64b16c88-9039-4cb9-8323-ca5c62bc60ce"
+    },
+    "fileId": "cajC2IEY1HZ4WJu76RBe+D",
+    "sync": false
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "__type__": "cc.Material",
+  "_name": "sprite-flag",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "d0c80b5d-d212-4e75-8581-23ec133eb3a4"
+  },
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
+  }
+}
