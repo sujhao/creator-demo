@@ -5,7 +5,6 @@ import PlayerInfo from "../model/PlayerInfo";
 import ControlUI, { ControlUI_Event } from "../prefab/ControlUI";
 import SceneBase from "./SceneBase";
 import SceneManager from "./SceneManager";
-import RecordScene from "./RecordScene";
 import Level1Scene from "./level/Level1Scene";
 
 const { ccclass, property } = cc._decorator;
@@ -88,7 +87,6 @@ export default class StartScene extends SceneBase {
         // SceneManager.instance.sceneSwitch(Level1Scene.scriptName);
 
         // CommonTips.showMsg("test")
-        // SceneManager.instance.sceneSwitch(RecordScene.scriptName)
         // ChatManager.instance.startChat(1)
     }
 
@@ -100,7 +98,6 @@ export default class StartScene extends SceneBase {
 
     private onClickOld() {
         this.initNew();
-        SceneManager.instance.sceneSwitch(RecordScene.scriptName);
     }
 
     onDestroyMe() {
