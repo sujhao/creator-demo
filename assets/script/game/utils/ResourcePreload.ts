@@ -7,9 +7,7 @@ import SoundPrefab from "../../engine/uicomponent/SoundPrefab";
 import { Logger } from "../../engine/utils/Logger";
 import MaterialPrefab from "../prefab/MaterialPrefab";
 import ResourcePrefab from "../prefab/ResourcePrefab";
-import MagicPrefab from "../prefab/MagicPrefab";
 import ShaderMaterialPrefab from "../prefab/ShaderMaterialPrefab";
-import PlayerResourcePrefab from "../prefab/PlayerResourcePrefab";
 
 
 export default class ResourcePreload {
@@ -43,13 +41,9 @@ export default class ResourcePreload {
         await ResourcePrefab.preLoad();//5
         this.finishOneItemLoad(); 
         await MaterialPrefab.preLoad(); //6
-        this.finishOneItemLoad(); 
-        await MagicPrefab.preLoad(); //7
         this.finishOneItemLoad()
         await ShaderMaterialPrefab.preLoad();
         this.finishOneItemLoad(); //8
-        await PlayerResourcePrefab.preLoad(); //9
-        this.finishOneItemLoad()
         callback();
     }
 
@@ -70,7 +64,6 @@ export default class ResourcePreload {
         MusicPrefab.destory();
         SoundPrefab.destory();
         ResourcePrefab.clear();
-        PlayerResourcePrefab.clear();
         cc.game.restart();
     }
 

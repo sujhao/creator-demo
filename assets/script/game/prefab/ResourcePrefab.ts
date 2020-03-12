@@ -26,8 +26,6 @@ export default class ResourcePrefab extends cc.Component {
     @property({type:cc.Prefab})
     private giftPrefab:cc.Prefab = null;
 
-    @property({type:cc.Prefab})
-    private controlUI:cc.Prefab = null;
 
     public static preLoad(): Promise<void> {
         return new Promise((resolve, reject) => {
@@ -62,10 +60,6 @@ export default class ResourcePrefab extends cc.Component {
 
     public static getGiftPrefab(){
         return ResourcePrefab.instance.getComponent(ResourcePrefab).giftPrefab;
-    }
-
-    public static getControlUIPrefab(){
-        return ResourcePrefab.instance.getComponent(ResourcePrefab).controlUI;
     }
 
 

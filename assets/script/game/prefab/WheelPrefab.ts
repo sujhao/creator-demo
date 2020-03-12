@@ -1,7 +1,5 @@
 import EventManager, { HaoEvent } from "../../engine/utils/EventManager";
 import MathUtils from "../../engine/utils/MathUtils";
-import ControlUI, { ControlUI_Event } from "./ControlUI";
-import { Logger } from "../../engine/utils/Logger";
 
 
 const { ccclass, property } = cc._decorator;
@@ -28,28 +26,10 @@ export default class WheelPrefab extends cc.Component {
     private nowWheelSide:number = WheelSide.Left; //当前滚动方向
 
     protected onLoad() {
-        EventManager.instance.addListener(ControlUI.Event_ControlUI, this.onControlUIEvent, this)
         this.initWheelRot(true);
     }
 
-    /**
-     * 控制UI事件
-     * @param keyType 
-     */
-    protected onControlUIEvent(event:HaoEvent,keyType: number) {
-        if(!this.node.active)return //当控件隐藏时不能操作
-        if (keyType == ControlUI_Event.Up) {
-            this.moveWheel(WheelSide.Left)
-        } else if (keyType == ControlUI_Event.Down) {
-            this.moveWheel(WheelSide.Right)
-        } else if (keyType == ControlUI_Event.Left) {
-            this.moveWheel(WheelSide.Left)
-        } else if (keyType == ControlUI_Event.Right) {
-            this.moveWheel(WheelSide.Right)
-        }else if(keyType == ControlUI_Event.A){
-            this.onSelectWheel(this.nowWheelIndex)
-        }
-    }
+    
 
     /**
      * 设置滚动角度
@@ -134,6 +114,5 @@ export default class WheelPrefab extends cc.Component {
     }
 
     protected onDestroy() {
-        EventManager.instance.removeListener(ControlUI.Event_ControlUI, this.onControlUIEvent)
     }
 }

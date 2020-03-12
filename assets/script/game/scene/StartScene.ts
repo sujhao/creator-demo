@@ -1,11 +1,6 @@
 import EventManager, { HaoEvent } from "../../engine/utils/EventManager";
-import BagModel from "../model/BagModel";
-import LevelInfo from "../model/LevelInfo";
-import PlayerInfo from "../model/PlayerInfo";
-import ControlUI, { ControlUI_Event } from "../prefab/ControlUI";
 import SceneBase from "./SceneBase";
 import SceneManager from "./SceneManager";
-import Level1Scene from "./level/Level1Scene";
 
 const { ccclass, property } = cc._decorator;
 
@@ -25,7 +20,6 @@ export default class StartScene extends SceneBase {
 
 
     onLoadMe() {
-        EventManager.instance.addListener(ControlUI.Event_ControlUI, this.onControlUIEvent, this)
         // GameMusicHelper.playStory();
         this.jianMv.setPosition(this.defaultX, this.defaultY)
         this.initJianMv();
@@ -43,32 +37,7 @@ export default class StartScene extends SceneBase {
 
     }
 
-    private onControlUIEvent(event:HaoEvent,keyType: number) {
-        if (keyType == ControlUI_Event.Up) {
-            if (this.isDown) {
-                this.isDown = false;
-                cc.tween(this.jianMv)
-                    .to(0.2, { position: cc.v2(this.jianMv.x, this.defaultY) })
-                    .call(() => { this.initJianMv(); })
-                    .start()
-            }
-        } else if (keyType == ControlUI_Event.Down) {
-            if (!this.isDown) {
-                this.isDown = true;
-                cc.tween(this.jianMv)
-                    .to(0.2, { position: cc.v2(this.jianMv.x, this.downY) })
-                    .call(() => { this.initJianMv(); })
-                    .start()
-            }
-        } else if (keyType == ControlUI_Event.A || keyType == ControlUI_Event.B) {
-            if (this.isDown) {
-                this.onClickOld();
-            } else {
-                this.onClickNew();
-            }
-        }
-    }
-
+   
     private initJianMv() {
         cc.tween(this.jianMv)
             .repeatForever(
@@ -84,16 +53,12 @@ export default class StartScene extends SceneBase {
             // this.initNew(newName);
             this.initNew();
         // });
-        // SceneManager.instance.sceneSwitch(Level1Scene.scriptName);
 
         // CommonTips.showMsg("test")
         // ChatManager.instance.startChat(1)
     }
 
     private initNew(newPlayerName:string="豪野") {
-        BagModel.reInitNew();
-        PlayerInfo.reInitNew(newPlayerName);
-        LevelInfo.nowLevel = 1;
     }
 
     private onClickOld() {
@@ -101,6 +66,5 @@ export default class StartScene extends SceneBase {
     }
 
     onDestroyMe() {
-        EventManager.instance.removeListener(ControlUI.Event_ControlUI, this.onControlUIEvent)
     }
 }
