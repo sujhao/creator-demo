@@ -5,7 +5,6 @@ import MusicPrefab from "../../engine/uicomponent/MusicPrefab";
 import Progress from "../../engine/uicomponent/Progress";
 import SoundPrefab from "../../engine/uicomponent/SoundPrefab";
 import { Logger } from "../../engine/utils/Logger";
-import MaterialPrefab from "../prefab/MaterialPrefab";
 import ResourcePrefab from "../prefab/ResourcePrefab";
 import ShaderMaterialPrefab from "../prefab/ShaderMaterialPrefab";
 
@@ -40,8 +39,6 @@ export default class ResourcePreload {
         this.finishOneItemLoad();
         await ResourcePrefab.preLoad();//5
         this.finishOneItemLoad(); 
-        await MaterialPrefab.preLoad(); //6
-        this.finishOneItemLoad()
         await ShaderMaterialPrefab.preLoad();
         this.finishOneItemLoad(); //8
         callback();
