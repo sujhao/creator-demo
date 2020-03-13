@@ -81,24 +81,13 @@
       "__id__": 1
     },
     "_enabled": true,
-    "moveGripPrefab": {
-      "__uuid__": "3caee2a2-ad97-48f8-b918-adb8e4b85efe"
-    },
-    "attackGridPrefab": {
-      "__uuid__": "403d3892-a05a-4cf8-aed6-91f0e6c57782"
-    },
-    "attackSelectGridPrefab": {
-      "__uuid__": "cc588cb9-8d99-462e-9984-78c311f3576e"
-    },
+    "moveGripPrefab": null,
+    "attackGridPrefab": null,
+    "attackSelectGridPrefab": null,
     "scorePrefab": {
       "__uuid__": "463abd5d-c3b8-4354-b614-012540a2dfb8"
     },
-    "giftPrefab": {
-      "__uuid__": "f91744b1-3c96-49f5-b618-1b99043cad8f"
-    },
-    "controlUI": {
-      "__uuid__": "4c1908e7-a7f8-49ed-ae40-ca54c48a44a5"
-    },
+    "giftPrefab": null,
     "_id": ""
   },
   {

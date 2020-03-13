@@ -20,10 +20,6 @@ export default class LoadingScene extends SceneBase {
     @property({ type: cc.Node })
     private progressNode: cc.Node = null;
 
-    onLoad() {
-        super.onLoad(false)
-    }
-
     onLoadMe() {
         this.baseInit();
         EventManager.instance.addListener(HotUpdate.Event_On_NeedUpdate, this.onNeedUpdate, this);
@@ -41,7 +37,9 @@ export default class LoadingScene extends SceneBase {
 
     private baseInit() {
         cc.debug.setDisplayStats(false);
-        cc.dynamicAtlasManager.enabled = false;
+        if(cc.dynamicAtlasManager){
+            cc.dynamicAtlasManager.enabled = false;
+        }
         MusicConfig.init();
         // cc.director.getCollisionManager().enabled=true;//这是一个全局属性，开启后就代表碰撞检测组件可以进行检测了
         // cc.director.getCollisionManager().enabledDebugDraw = true; //绘制碰撞区域
