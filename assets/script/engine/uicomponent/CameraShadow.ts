@@ -12,9 +12,6 @@ export default class CameraShadow extends cc.Component {
     @property({ type: cc.Node })
     private targetNode: cc.Node = null;
 
-    // @property(cc.Sprite)
-    // private renderTextureSprite: cc.Sprite = null;
-
     @property(cc.Camera)
     private showCamera: cc.Camera = null;
 
@@ -28,13 +25,15 @@ export default class CameraShadow extends cc.Component {
 
 
     private spriteNum: number = 5;
-    
-    private tweens: cc.Tween[] = [];
+    private opacityConfig:Array<number> = [
+        200,150,100,50,10
+    ]
 
     onLoad() {
         cc.debug.setDisplayStats(false);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onNodeIconTouchMove, this);
-        Logger.log("zIndex=", this.targetNode.zIndex)
+        Logger.log("cullingMask=", this.showCamera.cullingMask.toString(2))
+
     }
 
     start() {
@@ -51,6 +50,7 @@ export default class CameraShadow extends cc.Component {
 
         for (let i = 0; i < this.spriteNum; i++) {
             let tempNode: cc.Node = new cc.Node();
+            tempNode.opacity = this.opacityConfig[i];
             this.shadowSpriteList[i] = tempNode.addComponent(cc.Sprite);
             this.targetNode.parent.addChild(tempNode);
             tempNode.zIndex = this.targetNode.zIndex - i - 1;
@@ -72,15 +72,13 @@ export default class CameraShadow extends cc.Component {
         for (let i = 0; i < this.shadowSpriteList.length; i++) {
             let shadowSprite: cc.Sprite = this.shadowSpriteList[i];
             const dis: number = MathUtils.distance(this.targetNode.x, this.targetNode.y, shadowSprite.node.x, shadowSprite.node.y);
-            Logger.log("dis==", dis)
-            if (dis > 1) {
+            if (dis > 0) {
                 shadowSprite.node.active = true;
                 shadowSprite.node.stopAllActions();
                 let t = cc.tween(shadowSprite.node).to(i*0.05+0.02,  { position: this.targetNode.getPosition()}).call(()=>{
                     shadowSprite.node.stopAllActions();
                     shadowSprite.node.active = false;
                 }).start();
-                this.tweens.push(t);
             }
         }
 
@@ -96,9 +94,6 @@ export default class CameraShadow extends cc.Component {
     onDestroy() {
         this.node.stopAllActions();
         this.unscheduleAllCallbacks();
-        this.tweens.forEach(t => {
-            t.stop();
-        })
     }
 
 }
