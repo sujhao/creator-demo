@@ -31,11 +31,11 @@ export default class CameraTest extends cc.Component {
 
     start() {
 
-        let t = cc.tween(this.target)
-            .by(6, { angle: 360 })
-            .repeatForever()
-            .start()
-        this._tweens.push(t);
+        // let t = cc.tween(this.target)
+        //     .by(6, { angle: 360 })
+        //     .repeatForever()
+        //     .start()
+        // this._tweens.push(t);
 
 
         Logger.log("height==", cc.Canvas.instance.node.height)
@@ -50,12 +50,22 @@ export default class CameraTest extends cc.Component {
         //     .start()
         // this._tweens.push(t);
 
-        this.cameraPos = cc.v3(150,50,100);
+        this.cameraPos = cc.v3(0, 0, MINI_CAMERA_Z);
+
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onNodeIconTouchMove, this);
     }
+
+    private onNodeIconTouchMove(evt: cc.Event.EventTouch) {
+        this.target.x += evt.getDeltaX();
+        this.target.y += evt.getDeltaY();
+    }
+
 
 
     update() {
 
+
+        this.cameraPos = cc.v3(this.target.x, this.target.y, MINI_CAMERA_Z)
         let { width: canvasWidth, height: canvasHeight } = cc.Canvas.instance.node;
 
         let deviceWidth = canvasWidth, deviceHeight = canvasHeight;
@@ -64,7 +74,14 @@ export default class CameraTest extends cc.Component {
         let orthoHeight = this.cameraOrthoSize;
         let orthoWidth = orthoHeight * (deviceWidth / deviceHeight);
 
+        let cameraWidth: number = this.miniMapCamera.rect.width * deviceWidth;
+        let afd = 1 - (deviceWidth / 2 - this.cameraPos.x + cameraWidth / 2) / deviceWidth;
+
+        Logger.log("afd==", afd, cameraWidth);
+        this.miniMapCamera.rect.x = afd
         let rect = this.miniMapCamera.rect;
+        this.miniMapCamera.rect = cc.rect(afd, rect.y, rect.width,rect.height)
+
         this.cameraInfo.clear();
         // Logger.log("update=", this.cameraOrthoSize, orthoWidth, orthoHeight, rect, this.cameraPos)
         // draw mini camera border
@@ -78,7 +95,7 @@ export default class CameraTest extends cc.Component {
         this.cameraInfo.strokeColor = cc.Color.YELLOW;
         this.cameraInfo.stroke();
 
-        Logger.log("update=", this.cameraPos, orthoWidth, orthoHeight)
+        // Logger.log("update=", this.cameraPos, orthoWidth, orthoHeight)
         // draw mini camera ortho size
         this.cameraInfo.rect(this.cameraPos.x - orthoWidth, this.cameraPos.y - orthoHeight, orthoWidth * 2, orthoHeight * 2);
         this.cameraInfo.strokeColor = cc.Color.BLUE;
