@@ -3,7 +3,8 @@
     "default",
     "wall",
     "movegrid",
-    "tilemap"
+    "tilemap",
+    "role"
   ],
   "collision-matrix": [
     [
@@ -22,6 +23,13 @@
       false
     ],
     [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
       false,
       false,
       false,
@@ -56,5 +64,5 @@
       "enable": false
     }
   },
-  "start-scene": "3deca686-356b-4a89-97e0-d255f6a637b7"
+  "start-scene": "current"
 }
