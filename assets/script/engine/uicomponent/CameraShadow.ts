@@ -92,6 +92,10 @@ export default class CameraShadow extends cc.Component {
     }
 
     onDestroy() {
+        for (let i = 0; i < this.shadowSpriteList.length; i++) {
+            this.shadowSpriteList[i].node.destroy();
+        }
+        this.shadowSpriteList = [];
         this.node.stopAllActions();
         this.unscheduleAllCallbacks();
     }
