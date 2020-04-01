@@ -1,5 +1,6 @@
 import { Logger } from "../utils/Logger";
 import MathUtils from "../utils/MathUtils";
+import BitUtil from "../utils/BitUtil";
 
 
 const { ccclass, property } = cc._decorator;
@@ -32,7 +33,6 @@ export default class CameraShadow extends cc.Component {
     onLoad() {
         cc.debug.setDisplayStats(false);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.onNodeIconTouchMove, this);
-        Logger.log("cullingMask=", this.showCamera.cullingMask.toString(2))
 
     }
 

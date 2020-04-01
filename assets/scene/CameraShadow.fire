@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 9
+        "__id__": 10
       },
       {
-        "__id__": 10
+        "__id__": 11
       }
     ],
     "_prefab": null,
@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        252.8794179050561,
+        404.42828116528494,
         0,
         0,
         0,
@@ -232,7 +232,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "role",
+    "_name": "CameraShadow",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -250,7 +250,9 @@
         "__id__": 8
       }
     ],
-    "_prefab": null,
+    "_prefab": {
+      "__id__": 9
+    },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -354,7 +356,7 @@
       "__id__": 5
     },
     "_enabled": true,
-    "_cullingMask": 24,
+    "_cullingMask": 28,
     "_clearFlags": 6,
     "_backgroundColor": {
       "__type__": "cc.Color",
@@ -381,6 +383,17 @@
     "_renderStages": 1,
     "_alignWithScreen": false,
     "_id": "39Zed6EDxHi5RkW5qUdW3W"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 5
+    },
+    "asset": {
+      "__uuid__": "1a29516f-0d7b-4c42-90ec-03b3600586ef"
+    },
+    "fileId": "77Hz+yCN9ObbstOdrDDI27",
+    "sync": false
   },
   {
     "__type__": "cc.Canvas",
