@@ -1,8 +1,7 @@
 {
   "group-list": [
     "default",
-    "tilemap",
-    "role"
+    "CameraShadow"
   ],
   "collision-matrix": [
     [
