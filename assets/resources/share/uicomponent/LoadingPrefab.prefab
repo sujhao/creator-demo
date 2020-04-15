@@ -82,7 +82,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "loadingSp",
+    "_name": "New Sprite(Splash)",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -107,8 +107,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 200,
+      "height": 200
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -154,13 +154,13 @@
     "_enabled": true,
     "_materials": [
       {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+        "__uuid__": "2506c8b8-c747-4b43-9c58-617eae913f5d"
       }
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d932714d-cd1e-4ce4-8d23-b8891d81d5d7"
+      "__uuid__": "a23235d1-15db-4b95-8439-a2e005bfff91"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -184,7 +184,7 @@
     "asset": {
       "__uuid__": "13dd169b-ffe3-494e-94cd-1f45016f639e"
     },
-    "fileId": "0eqIiqr/NOgIBU6KZpZ/uR",
+    "fileId": "b8ND4tdRxPQJtQdaENjH7d",
     "sync": false
   },
   {
@@ -195,9 +195,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "loadingSp": {
-      "__id__": 2
-    },
     "_id": ""
   },
   {

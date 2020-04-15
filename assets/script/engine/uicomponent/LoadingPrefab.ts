@@ -11,9 +11,6 @@ export default class LoadingPrefab extends cc.Component {
 
     public static LoadingZorderIndex:number = 99;
 
-    @property({type:cc.Node})
-    loadingSp:cc.Node = null;
-
 
     onLoad (){
        
@@ -59,10 +56,7 @@ export default class LoadingPrefab extends cc.Component {
     }
 
     update (dt) {
-        this.loadingSp.rotation += 10;
-        if(this.loadingSp.rotation >= 360){
-            this.loadingSp.rotation = 0;
-        }
+       
     }
 
     public static clear(){

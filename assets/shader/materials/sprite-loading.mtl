@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.Material",
+  "_name": "sprite-loading",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "1d34a026-584d-46ce-9347-5ddf9d870594"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
+  }
+}
